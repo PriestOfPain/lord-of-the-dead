@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.priestofpain.lordofthedead.LordOfTheDead;
+import net.priestofpain.lordofthedead.item.custom.NecromancerStaffItem;
 
 public class ModItems {
     // Adds mod items to be registered when forge loads
@@ -13,7 +14,7 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, LordOfTheDead.MOD_ID);
 
     public static final RegistryObject<Item> NECROMANCER_STAFF = ITEMS.register("necromancer_staff",
-            () -> new Item(new Item.Properties()));
+            () -> new NecromancerStaffItem(new Item.Properties()));
 
     public static final RegistryObject<Item> GRAVE_ROBBERS_SHOVEL = ITEMS.register("grave_robbers_shovel",
             () -> new Item(new Item.Properties()));
