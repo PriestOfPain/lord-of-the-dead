@@ -7,6 +7,7 @@ at this stage. If I like my future results, then I will try to flesh this mod ou
 Right now, I will implement an item that will summon undead mobs (zombies, skeletons, etc).
 
 # Todo
-- Implement creative tab
-- Create item that summons undead mobs
+- Add durability to necromancer staff
 - Alter mob behavior to prevent summoned mobs attacking the summoner
+- Replace placeholder textures
+- Add use for grave robber shovel
