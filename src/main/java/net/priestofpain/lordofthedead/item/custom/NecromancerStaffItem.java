@@ -25,7 +25,7 @@ public class NecromancerStaffItem extends Item {
     // If player right-clicks a block with the item
     // spawn a zombie
     @Override
-    public InteractionResult useOn( UseOnContext pContext) {
+    public InteractionResult useOn(UseOnContext pContext) {
         if(!pContext.getLevel().isClientSide()) {
             BlockPos positionClicked = pContext.getClickedPos();
             Level level = pContext.getLevel();
