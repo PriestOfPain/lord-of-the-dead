@@ -25,7 +25,7 @@ public class NecromancerStaffItem extends Item {
     // If player right-clicks a block with the item
     // spawn a zombie
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public InteractionResult useOn( UseOnContext pContext) {
         if(!pContext.getLevel().isClientSide()) {
             BlockPos positionClicked = pContext.getClickedPos();
             Level level = pContext.getLevel();
@@ -54,7 +54,7 @@ public class NecromancerStaffItem extends Item {
                     EntityType<Zombie> zombie = EntityType.ZOMBIE;
                     if (zombie.spawn((ServerLevel) level, blockPos1, MobSpawnType.MOB_SUMMONED) != null) {
                         level.gameEvent(pContext.getPlayer(), GameEvent.ENTITY_PLACE, positionClicked);
-                        return InteractionResult.SUCCESS;
+                        return InteractionResult.CONSUME;
                     }
                 }
             }
