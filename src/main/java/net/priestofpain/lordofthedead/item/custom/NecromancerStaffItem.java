@@ -2,17 +2,21 @@ package net.priestofpain.lordofthedead.item.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.wrapper.PlayerMainInvWrapper;
 
 public class NecromancerStaffItem extends Item {
 
@@ -20,7 +24,7 @@ public class NecromancerStaffItem extends Item {
         super(pProperties);
     }
 
-    // If player right clicks a block with the item
+    // If player right-clicks a block with the item
     // spawn a zombie
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
@@ -29,25 +33,34 @@ public class NecromancerStaffItem extends Item {
             Level level = pContext.getLevel();
             Direction direction = pContext.getClickedFace();
             BlockState blockState = level.getBlockState(positionClicked);
+            int minSummonItemAmount = 3;
+
 
             // First choice of spawn placement, otherwise
-            // get nearest available spawnpoint
+            // get nearest available spawn point
             BlockPos blockPos1;
-            if(blockState.getCollisionShape(level, positionClicked).isEmpty()) {
+            if (blockState.getCollisionShape(level, positionClicked).isEmpty()) {
                 blockPos1 = positionClicked;
             } else {
                 blockPos1 = positionClicked.relative(direction);
             }
 
-            // Spawn our zombie!
-            EntityType<Zombie> zombie = EntityType.ZOMBIE;
-            if(zombie.spawn((ServerLevel) level, blockPos1, MobSpawnType.MOB_SUMMONED) != null) {
-                level.gameEvent(pContext.getPlayer(), GameEvent.ENTITY_PLACE, positionClicked);
+            // Check player inventory to see if they have the required components
+            // to summon a zombie (3 rotten flesh)
+            IItemHandler inventory = new PlayerMainInvWrapper(pContext.getPlayer().getInventory());
+            for (int i = 0; i < inventory.getSlots(); i++) {
+                if (inventory.getStackInSlot(i).getItem() == Items.ROTTEN_FLESH &&
+                    inventory.getStackInSlot(i).getCount() >= minSummonItemAmount) {
+                    inventory.getStackInSlot(i).shrink(3);
+                    // Spawn our zombie!
+                    EntityType<Zombie> zombie = EntityType.ZOMBIE;
+                    if (zombie.spawn((ServerLevel) level, blockPos1, MobSpawnType.MOB_SUMMONED) != null) {
+                        level.gameEvent(pContext.getPlayer(), GameEvent.ENTITY_PLACE, positionClicked);
+                        return InteractionResult.SUCCESS;
+                    }
+                }
             }
-
-            return InteractionResult.SUCCESS;
-        } else {
-            return InteractionResult.FAIL;
         }
+        return InteractionResult.FAIL;
     }
 }
