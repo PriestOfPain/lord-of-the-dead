@@ -1,6 +1,7 @@
 package net.priestofpain.lordofthedead.entity.custom;
 
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -9,8 +10,11 @@ import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.priestofpain.lordofthedead.entity.ai.goal.FollowSummonerGoal;
+import org.jetbrains.annotations.Nullable;
 
-public class SummonedZombieEntity extends Zombie {
+import java.util.UUID;
+
+public class SummonedZombieEntity extends Zombie implements OwnableEntity {
     public SummonedZombieEntity(EntityType<? extends Zombie> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -37,5 +41,11 @@ public class SummonedZombieEntity extends Zombie {
     @Override
     protected void addBehaviourGoals() {
 
+    }
+
+    @Nullable
+    @Override
+    public UUID getOwnerUUID() {
+        return null;
     }
 }
