@@ -15,6 +15,7 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.priestofpain.lordofthedead.entity.ModEntities;
 import net.priestofpain.lordofthedead.item.ModCreativeModeTabs;
 import net.priestofpain.lordofthedead.item.ModItems;
 import org.slf4j.Logger;
@@ -35,6 +36,8 @@ public class LordOfTheDead
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
