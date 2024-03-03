@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.LeavesBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.level.pathfinder.WalkNodeEvaluator;
+import net.priestofpain.lordofthedead.entity.custom.SummonedZombieEntity;
 
 import java.util.EnumSet;
 
@@ -20,7 +21,7 @@ public class FollowSummonerGoal extends Goal {
     private static final int MIN_HORIZONTAL_DISTANCE_FROM_PLAYER_WHEN_TELEPORTING = 2;
     private static final int MAX_HORIZONTAL_DISTANCE_FROM_PLAYER_WHEN_TELEPORTING = 3;
     private static final int MAX_VERTICAL_DISTANCE_FROM_PLAYER_WHEN_TELEPORTING = 1;
-    private final Zombie zombie;
+    private final SummonedZombieEntity zombie;
     private LivingEntity summoner;
     private final LevelReader level;
     private final double speedModifier;
@@ -31,7 +32,7 @@ public class FollowSummonerGoal extends Goal {
     private float oldWaterCost;
     private final boolean canFly;
 
-    public FollowSummonerGoal(Zombie pZombie, double pSpeedModifier, float pStartDistance, float pStopDistance, boolean pCanFly){
+    public FollowSummonerGoal(SummonedZombieEntity pZombie, double pSpeedModifier, float pStartDistance, float pStopDistance, boolean pCanFly){
         this.zombie = pZombie;
         this.level = pZombie.level();
         this.speedModifier = pSpeedModifier;
