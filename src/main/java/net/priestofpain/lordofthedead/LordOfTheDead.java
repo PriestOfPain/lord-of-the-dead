@@ -1,6 +1,7 @@
 package net.priestofpain.lordofthedead;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,6 +16,8 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.priestofpain.lordofthedead.entity.ModEntities;
+import net.priestofpain.lordofthedead.entity.client.SummonedZombieRenderer;
 import net.priestofpain.lordofthedead.item.ModCreativeModeTabs;
 import net.priestofpain.lordofthedead.item.ModItems;
 import org.slf4j.Logger;
@@ -35,6 +38,8 @@ public class LordOfTheDead
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+
+        ModEntities.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -71,7 +76,7 @@ public class LordOfTheDead
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-
+            EntityRenderers.register(ModEntities.SUMMONED_ZOMBIE.get(), SummonedZombieRenderer::new);
         }
     }
 }
