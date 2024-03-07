@@ -16,9 +16,6 @@ public class ModItems {
     public static final RegistryObject<Item> NECROMANCER_STAFF = ITEMS.register("necromancer_staff",
             () -> new NecromancerStaffItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> GRAVE_ROBBERS_SHOVEL = ITEMS.register("grave_robbers_shovel",
-            () -> new Item(new Item.Properties()));
-
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
