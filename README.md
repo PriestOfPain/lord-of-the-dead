@@ -10,4 +10,4 @@ Right now, I will implement an item that will summon undead mobs (zombies, skele
 - Add durability to necromancer staff
 - Alter mob behavior to prevent summoned mobs attacking the summoner
 - Replace placeholder textures
-- Add use for grave robber shovel
+- Add an item to summon skeletons (uses bones instead of rotten flesh)
