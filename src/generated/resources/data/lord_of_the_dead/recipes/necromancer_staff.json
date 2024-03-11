@@ -16,12 +16,12 @@
     }
   },
   "pattern": [
-    "DGD",
+    "GDG",
     "ISI",
     "ISI"
   ],
   "result": {
-    "item": "lord_of_the_dead:necromancer_staff",
-    "count": 1
-  }
+    "item": "lord_of_the_dead:necromancer_staff"
+  },
+  "show_notification": true
 }
