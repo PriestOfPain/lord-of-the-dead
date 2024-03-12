@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.priestofpain.lordofthedead.LordOfTheDead;
+import net.priestofpain.lordofthedead.block.ModBlocks;
 
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -20,6 +21,8 @@ public class ModCreativeModeTabs {
                             .title(Component.translatable("creativetab.lord_of_the_dead_tab"))
                             .displayItems((pParameters, pOutput) -> {
                                 pOutput.accept(ModItems.NECROMANCER_STAFF.get());
+
+                                pOutput.accept((ModBlocks.BONE_PILE_BLOCK.get()));
                             })
                             .build());
 
