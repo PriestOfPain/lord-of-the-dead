@@ -10,6 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.priestofpain.lordofthedead.block.ModBlocks;
 import net.priestofpain.lordofthedead.item.ModCreativeModeTabs;
 import net.priestofpain.lordofthedead.item.ModItems;
 import net.priestofpain.lordofthedead.loot.ModLootModifiers;
@@ -31,6 +32,7 @@ public class LordOfTheDead
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         ModLootModifiers.register(modEventBus);
 
