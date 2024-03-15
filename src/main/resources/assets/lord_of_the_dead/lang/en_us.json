@@ -3,5 +3,7 @@
 
   "block.lord_of_the_dead.bone_pile_block": "Bone Pile",
 
-  "creativetab.lord_of_the_dead_tab": "Lord of the Dead"
+  "creativetab.lord_of_the_dead_tab": "Lord of the Dead",
+
+  "tooltip.lord_of_the_dead.necromancer_staff.tooltip": "Use rotten flesh to summon zombies!"
 }
