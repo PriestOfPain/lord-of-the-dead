@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "lord_of_the_dead:item/tome_of_control_undead"
+  }
+}

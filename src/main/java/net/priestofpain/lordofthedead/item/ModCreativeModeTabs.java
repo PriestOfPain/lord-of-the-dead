@@ -21,6 +21,7 @@ public class ModCreativeModeTabs {
                             .title(Component.translatable("creativetab.lord_of_the_dead_tab"))
                             .displayItems((pParameters, pOutput) -> {
                                 pOutput.accept(ModItems.NECROMANCER_STAFF.get());
+                                pOutput.accept(ModItems.TOME_OF_CONTROL_UNDEAD.get());
 
                                 pOutput.accept((ModBlocks.BONE_PILE_BLOCK.get()));
                             })

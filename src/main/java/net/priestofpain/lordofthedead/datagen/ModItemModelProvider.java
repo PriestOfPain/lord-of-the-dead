@@ -18,6 +18,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(ModItems.NECROMANCER_STAFF);
+        simpleItem(ModItems.TOME_OF_CONTROL_UNDEAD);
     }
     // Generates our mod items
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
