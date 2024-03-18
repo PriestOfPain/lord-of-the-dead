@@ -12,3 +12,4 @@ Right now, I will implement an item that will summon undead mobs (zombies, skele
 - Replace placeholder textures
 - Add an item to summon skeletons (uses bones instead of rotten flesh)
 - Add new blocks 
+- Implement proper functionality for tomes
