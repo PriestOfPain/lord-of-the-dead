@@ -2,9 +2,10 @@
 
 # Introduction
 This is an experimental attempt at creating a Minecraft mod focused on necromancy.
-Right now I am just teaching myself how to mod with forge, so do not expect anything grand
-at this stage. If I like my future results, then I will try to flesh this mod out further.
-Right now, I will implement an item that will summon undead mobs (zombies, skeletons, etc).
+In reality, this is just an exercise in teaching myself Forge. 
+If I like my future results, then I will try to flesh this mod out further.
+Right now, I am implementing items that will summon undead mobs (zombies, skeletons, etc).
+Also, I will attempt to alter mob behaviors. 
 
 # Todo
 - Add durability to necromancer staff
